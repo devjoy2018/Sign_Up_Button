@@ -10,7 +10,7 @@ document
     var passwordError = document.getElementById('password-error');
 
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // using regular expressions
+    var passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/;
 
     emailError.textContent = '';
     passwordError.textContent = '';
@@ -20,11 +20,33 @@ document
       return;
     }
 
-    if (password.length < 8) {
-      passwordError.textContent = 'Password must be at least 8 characters long';
+    if (!passwordPattern.test(password)) {
+      passwordError.textContent =
+        'Password must contain at least 8 characters, one uppercase letter, one special character, and one number';
       return;
     }
 
+    // If everything is valid, you can proceed with the sign-up process
+    // For demonstration purpose, let's just log the email and password
     console.log('Email:', email);
     console.log('Password:', password);
+  });
+
+document
+  .getElementById('toggle-password')
+  .addEventListener('click', function () {
+    var passwordInput = document.getElementById('password');
+    var passwordToggleBtn = document.getElementById('toggle-password');
+
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordToggleBtn.textContent = 'Hide Password';
+    } else {
+      passwordInput.type = 'password';
+      passwordToggleBtn.textContent = 'Show Password';
+    }
+
+    passwordInput.style.width = '92%';
+    passwordInput.style.padding = '10px';
+    passwordInput.style.border = '1px solid #ccc';
   });

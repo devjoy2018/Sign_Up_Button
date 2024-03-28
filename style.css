@@ -17,6 +17,11 @@ form {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -30,6 +35,14 @@ label {
 
 input[type='email'],
 input[type='password'] {
+  width: 92%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input:active[type='email'],
+input:active[type='password'] {
   width: 92%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -54,4 +67,15 @@ button:hover {
   color: red;
   font-size: 0.8em;
   margin-top: 5px;
+}
+
+.password-toggle button {
+  background-color: #000000;
+  margin-bottom: 2%;
+}
+
+@media screen and (max-width: 480px) {
+  form {
+    width: 90%;
+  }
 }
